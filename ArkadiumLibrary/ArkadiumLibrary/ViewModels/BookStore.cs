@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ArkadiumLibrary.Models;
 using Realms;
 
@@ -31,6 +32,7 @@ namespace ArkadiumLibrary.ViewModels
 
         public void AddBook(Book book)
         {
+            book.id = _realmInstance.All<Book>().Count() + 1; //autoincrement
             _realmInstance.Write(() => { _realmInstance.Add(book); });
         }
 

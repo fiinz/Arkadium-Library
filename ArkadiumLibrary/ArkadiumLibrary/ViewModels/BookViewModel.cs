@@ -1,4 +1,5 @@
 ﻿using ArkadiumLibrary.Models;
+using Xamarin.Forms;
 
 namespace ArkadiumLibrary.ViewModels
 {
@@ -9,7 +10,13 @@ namespace ArkadiumLibrary.ViewModels
         private bool _isFavorite;
         private string _title;
         private int _year;
-
+        public ImageSource ProfileImage
+        {
+            get
+            {
+                return ImageSource.FromResource("ArkadiumLibrary.Images.book-placeholder.jpg");
+            }
+        }
 
         public BookViewModel()
         {

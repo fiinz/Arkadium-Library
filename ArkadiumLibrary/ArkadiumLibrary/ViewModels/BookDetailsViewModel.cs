@@ -56,6 +56,7 @@ namespace ArkadiumLibrary.ViewModels
 
             if (Book.id == 0) //default value of id
             {
+                
                 _bookStore.AddBook(Book);
                 MessagingCenter.Send(this, EventType.BookAdded, Book);
             }
