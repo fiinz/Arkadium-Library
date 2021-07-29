@@ -1,5 +1,4 @@
-﻿using System;
-using Realms;
+﻿using Realms;
 
 namespace ArkadiumLibrary.Models
 {
@@ -13,6 +12,5 @@ namespace ArkadiumLibrary.Models
         public string description { get; set; }
         public int year { get; set; }
         public bool isFavorite { get; set; }
- 
     }
 }

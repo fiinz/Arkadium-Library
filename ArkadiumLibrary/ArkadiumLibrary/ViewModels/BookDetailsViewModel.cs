@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ArkadiumLibrary.Models;
@@ -10,21 +9,17 @@ namespace ArkadiumLibrary.ViewModels
 {
     public class BookDetailsViewModel
     {
-        public ICommand DeleteBookCommand { get; private set; }
-
         private readonly IBookStore _bookStore;
         private readonly IService _service;
-        public Book Book { get; private set; }
-        public ICommand SaveBookCommand { get; private set; }
 
         public BookDetailsViewModel(BookViewModel viewModel, IBookStore bookStore, IService service)
         {
             if (viewModel == null)
                 throw new ArgumentNullException(nameof(viewModel));
-            
+
             _bookStore = bookStore;
             _service = service;
-            
+
             Book = new Book
             {
                 id = viewModel.Id,
@@ -32,33 +27,33 @@ namespace ArkadiumLibrary.ViewModels
                 description = viewModel.Description,
                 author = viewModel.Author,
                 year = viewModel.Year,
-                isFavorite = viewModel.IsFavorite,
+                isFavorite = viewModel.IsFavorite
             };
             SaveBookCommand = new Command(async () => await SaveBook());
             DeleteBookCommand = new Command(async b => await DeleteBook());
-
         }
-        
+
+        public ICommand DeleteBookCommand { get; }
+        public Book Book { get; }
+        public ICommand SaveBookCommand { get; }
+
         private async Task DeleteBook()
         {
             if (await _service.DisplayAlert("Warning", $"Are you sure you want to delete {Book.title}?", "Yes", "No"))
-            {
-                
                 _bookStore.DeleteBook(Book);
-            }
-            
-         //   await _service.PopAsync(); //leaves current page
 
+            await _service.PopAsync(); //leaves current page
         }
-        async Task SaveBook()
+
+        private async Task SaveBook()
         {
             //some validation
-            if (String.IsNullOrWhiteSpace(Book.title))
+            if (string.IsNullOrWhiteSpace(Book.title))
             {
                 await _service.DisplayAlert("Error", "Please enter the Book Title.", "OK");
                 return;
             }
-            
+
             if (Book.id == 0) //default value of id
             {
                 _bookStore.AddBook(Book);
@@ -69,9 +64,8 @@ namespace ArkadiumLibrary.ViewModels
                 _bookStore.UpdateBook(Book);
                 MessagingCenter.Send(this, EventType.BookUpdated, Book);
             }
+
             await _service.PopAsync(); //leaves current page
         }
-        
-        
     }
 }

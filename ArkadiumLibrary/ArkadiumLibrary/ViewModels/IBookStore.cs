@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using ArkadiumLibrary.Models;
 
 namespace ArkadiumLibrary.ViewModels
@@ -13,6 +12,5 @@ namespace ArkadiumLibrary.ViewModels
         void DeleteBook(Book book);
         void AddBook(Book book);
         void UpdateBook(Book book);
-
     }
 }

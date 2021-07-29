@@ -2,10 +2,9 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ArkadiumLibrary.Views.BooksPage"
-             xmlns:viewModels="clr-namespace:ArkadiumLibrary.ViewModels">
-    
-   
+             x:Class="ArkadiumLibrary.Views.BooksPage">
+
+
     <ContentPage.Title> Arkadium Book Library </ContentPage.Title>
 
     <ContentPage.ToolbarItems>
@@ -15,7 +14,7 @@
 
     <ContentPage.Content>
         <StackLayout Margin="5">
-          
+
             <!--
             Id = book.id;
             Title = book.title;
@@ -23,8 +22,10 @@
             Description = book.description;
             IsFavorite = book.isFavorite;
             Year = book.year;-->
-            
-            <ListView ItemsSource="{Binding CollectionOfBookViewModels}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" HasUnevenRows="True" SeparatorColor="Gray" ItemSelected="OnBookSelected">
+
+            <ListView ItemsSource="{Binding CollectionOfBookViewModels}"
+                      SelectedItem="{Binding SelectedBook, Mode=TwoWay}" HasUnevenRows="True" SeparatorColor="Gray"
+                      ItemSelected="OnBookSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

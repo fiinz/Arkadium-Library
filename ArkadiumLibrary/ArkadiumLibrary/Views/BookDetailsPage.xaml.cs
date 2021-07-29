@@ -17,24 +17,21 @@ namespace ArkadiumLibrary.Views
             InitializeComponent();
             var bookStore = new BookStore();
             var service = new Service();
-            Title ="New Book";
+            Title = "New Book";
             BindingContext = new BookDetailsViewModel(bookViewModel ?? new BookViewModel(), bookStore, service);
 
             if (bookViewModel.Title != null)
             {
-                Title= "Edit Book";
-                ToolbarItem item = new ToolbarItem
+                Title = "Edit Book";
+                var item = new ToolbarItem
                 {
                     Text = "Delete",
                     Order = ToolbarItemOrder.Primary,
                     Command = (BindingContext as BookDetailsViewModel).DeleteBookCommand,
                     Priority = 0
                 };
-                this.ToolbarItems.Add(item);
+                ToolbarItems.Add(item);
             }
-
         }
-           
-        
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace ArkadiumLibrary.ViewModels
 {
-    using System;
     namespace ContactsBook.ViewModels
     {
         public static class EventType
@@ -9,5 +8,4 @@
             public static string BookUpdated = "UpdateBook";
         }
     }
-    
 }

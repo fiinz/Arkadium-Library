@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Input;
-using ArkadiumLibrary.Models;
+﻿using ArkadiumLibrary.Models;
 
 namespace ArkadiumLibrary.ViewModels
 {
@@ -8,15 +6,15 @@ namespace ArkadiumLibrary.ViewModels
     {
         private string _author;
         private string _description;
+        private bool _isFavorite;
         private string _title;
         private int _year;
-        private bool _isFavorite;
-        
+
 
         public BookViewModel()
         {
-            
         }
+
         public BookViewModel(Book book)
         {
             Id = book.id;
@@ -52,12 +50,11 @@ namespace ArkadiumLibrary.ViewModels
             get => _year;
             set => SetValue(ref _year, value);
         }
-        
+
         public bool IsFavorite
         {
             get => _isFavorite;
             set => SetValue(ref _isFavorite, value);
         }
-  
     }
 }

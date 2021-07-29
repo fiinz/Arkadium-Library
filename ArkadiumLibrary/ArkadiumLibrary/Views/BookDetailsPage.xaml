@@ -1,26 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-    
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArkadiumLibrary.Views.BookDetailsPage">
 
 
-    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ArkadiumLibrary.Views.BookDetailsPage">
-   
-        
-        <TableView Intent="Form" Margin="16,0">
-            <TableRoot  >
-                <TableSection >
-                    
-                    <EntryCell Label="Title" Text="{Binding Path=Book.title}" />
-                    <EntryCell Label="Description" Text="{Binding Path=Book.description}" Keyboard="Text" />
-                    <EntryCell Label="author" Text="{Binding Path=Book.author}" Keyboard="Text" />
-                    <EntryCell Label="year" Text="{Binding Path=Book.year}" Keyboard="Numeric" />
-                    <SwitchCell Text="Add to Favorites" On="{Binding Path=Book.isFavorite}" />
-                </TableSection>
-                <TableSection>
-                    <ViewCell>
-                        <Button Text="Save" Command="{Binding SaveBookCommand}" />
-                    </ViewCell>
-                </TableSection>
-            </TableRoot>
-        </TableView>
-    </ContentPage>
+    <TableView Intent="Form" Margin="16,0">
+        <TableRoot>
+            <TableSection>
 
+                <EntryCell Label="Title" Text="{Binding Path=Book.title}" />
+                <EntryCell Label="Description" Text="{Binding Path=Book.description}" Keyboard="Text" />
+                <EntryCell Label="author" Text="{Binding Path=Book.author}" Keyboard="Text" />
+                <EntryCell Label="year" Text="{Binding Path=Book.year}" Keyboard="Numeric" />
+                <SwitchCell Text="Add to Favorites" On="{Binding Path=Book.isFavorite}" />
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button Text="Save" Command="{Binding SaveBookCommand}" />
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>
