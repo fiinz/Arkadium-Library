@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Realm" Version="10.3.0" />
+        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="MainPage.xaml" />
+      <EmbeddedResource Remove="Views\TestBookCreationPage.xaml" />
+      <EmbeddedResource Remove="Views\teste.xaml" />
+      <EmbeddedResource Remove="Views\EditDeleteBookPage.xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="MainPage.xaml.cs" />
+      <Compile Remove="Views\ListBooks.cs" />
+      <Compile Remove="Views\teste.xaml.cs" />
+      <Compile Remove="Views\CreateBookPage.cs" />
+      <Compile Remove="ViewModels\BookEditModel.cs" />
+      <Compile Remove="Views\EditDeleteBookPage.xaml.cs" />
+      <Compile Remove="ViewModels\IBookStore2.cs" />
+    </ItemGroup>
+</Project>
