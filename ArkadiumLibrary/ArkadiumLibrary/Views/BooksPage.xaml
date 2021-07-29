@@ -15,14 +15,6 @@
     <ContentPage.Content>
         <StackLayout Margin="5">
 
-            <!--
-            Id = book.id;
-            Title = book.title;
-            Author = book.author;
-            Description = book.description;
-            IsFavorite = book.isFavorite;
-            Year = book.year;-->
-
             <ListView ItemsSource="{Binding CollectionOfBookViewModels}"
                       SelectedItem="{Binding SelectedBook, Mode=TwoWay}" HasUnevenRows="True" SeparatorColor="Gray"
                       ItemSelected="OnBookSelected">
